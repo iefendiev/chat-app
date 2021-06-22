@@ -17,7 +17,7 @@ const Chat = () => {
 
   const { search } = useLocation();
   // console.log(name, room);
-  const ENDPOINT = 'localhost:5000';
+  const ENDPOINT = 'https://iefendiev-chatapp-backend.herokuapp.com/';
 
   const closeChat = () => {
     return true;
