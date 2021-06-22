@@ -58,9 +58,9 @@ const Chat = () => {
     socket.on('users', (users) => {
       setUsersInRoom(users);
     });
-  }, [message, messages]);
+  }, [message, messages, room]);
 
-  console.log(usersInRoom);
+  // console.log(usersInRoom);
   // send message function
 
   const sendMessage = (e) => {
