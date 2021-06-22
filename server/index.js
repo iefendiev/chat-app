@@ -42,7 +42,6 @@ io.on('connection', (socket) => {
     callback();
   });
 
-  // DENEME
   socket.on('showUsersInRoom', (room, callback) => {
     const usersInRoom = getUsersInRoom(room);
     io.to(room).emit('users', usersInRoom);
@@ -53,7 +52,10 @@ io.on('connection', (socket) => {
     // console.log('person disconnected...');
     const user = removeUser(socket.id);
     if (user) {
-      io.to(user.room).emit('message', { user: 'admin', text: `${user.name}` });
+      io.to(user.room).emit('message', {
+        user: 'admin',
+        text: `${user.name} has left.`,
+      });
     }
   });
 });

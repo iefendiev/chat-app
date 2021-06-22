@@ -52,17 +52,19 @@ const Chat = () => {
 
   useEffect(() => {
     socket.on('message', (message) => {
-      setMessages([...messages, message]);
+      setMessages((messages) => [...messages, message]);
     });
+  }, []);
+
+  useEffect(() => {
     socket.emit('showUsersInRoom', room, () => null);
+
     socket.on('users', (users) => {
-      setUsersInRoom(users);
+      setUsersInRoom(() => users);
     });
   }, [messages]);
-
   // console.log(usersInRoom);
   // send message function
-
   const sendMessage = (e) => {
     e.preventDefault();
 
