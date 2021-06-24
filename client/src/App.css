@@ -218,3 +218,9 @@ input,
     padding: 0;
   }
 }
+
+@media (max-width: 650px) {
+  .chat-window {
+    margin: 0;
+  }
+}

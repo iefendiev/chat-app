@@ -18,6 +18,7 @@ const Chat = () => {
   const { search } = useLocation();
   // console.log(name, room);
   const ENDPOINT = 'https://iefendiev-chatapp-backend.herokuapp.com/';
+  // const ENDPOINT = 'localhost:5000';
 
   const closeChat = () => {
     return true;
@@ -62,7 +63,7 @@ const Chat = () => {
     socket.on('users', (users) => {
       setUsersInRoom(() => users);
     });
-  }, [messages]);
+  }, [messages, room]);
   // console.log(usersInRoom);
   // send message function
   const sendMessage = (e) => {
